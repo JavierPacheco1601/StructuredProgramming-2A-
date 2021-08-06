@@ -1,0 +1,25 @@
+int main(){
+    FILE *pA; char cad [1000];
+    gets (cad); //primera linea - cabecera
+    //se crea el archivo
+    pA=fopen("clase.txt","wb"); //abre en modo escritura (bin)
+    if (pA==NULL){ //verifica que el archivo se creo correctamente
+         printf("\nError al creador el archivo clase.txt");
+         return 0;
+
+    }
+fwrite(cad,1, sizeof(cad),pA);
+//se leen los datos de los alumnos
+Alumno al;
+scand("%s", al.nombre);
+while(strcmp("#",al.nombre)!=0){
+    scanf("%s",al.apellido);
+    scanf("%s",al.facultad);
+    scanf("%d",&al.semestre);
+    //copiamos estos datos al archivo
+    fwrite(&al,sizeof(al),1,pA)
+    scanf("%s",al.nombre);
+}
+fclose(pA);
+retunr 0;
+}

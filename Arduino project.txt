@@ -1,0 +1,38 @@
+
+int ledPin [] = {
+	9,8,7,6,5,4,3,2};
+	int maxCount =256;
+	int delayInterval=250;
+
+	void setup ()
+{
+	//set up each pin as an output pin
+	for(int i=0; i<9; i++)
+	{
+		pinmode(ledPin[i],output);
+	}
+}
+void loop ()
+{
+	//LOOP through each number
+	for (int counter = 0; counter < maxCount;counter++)
+{
+	//pass the count number to the displayBinary function
+	displayBinary (counter);
+	delay (delayInterval);
+}
+}
+void displayBinary(byte numToShow)
+{
+	for (int i = 0;i <8; i++)
+	{
+		if(bitRead(numToShow, i)==1)
+		{
+			digitalWrite(ledPin[i], HIGH);
+		}
+		else
+		{
+			digitalWrite(ledPin[i],LOW)
+		}
+	}
+}

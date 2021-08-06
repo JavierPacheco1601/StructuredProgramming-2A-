@@ -1,0 +1,19 @@
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+//#include <time.h>
+
+#include "encodeCountry.h"
+int main()
+{
+    char *country = "Mexico";
+    char *encodedCountry = "*********";
+    int currentPoint = 0;
+    srand(time(NULL));
+    encodedCountry = encodecountry(country, &currentPoint); //, &currentPoint);
+
+    printf("NameofCountry: %s \n", country);
+    printf("encodeCountry: %s \n", encodedCountry);
+    printf("currentPoint: %d \n", currentPoint);
+    return 0;
+}
